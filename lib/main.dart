@@ -18,6 +18,8 @@ class MainApp extends ConsumerStatefulWidget {
   MainAppState createState() => MainAppState();
 }
 
+
+// The mixin WidgetsBindingObserver allow us to listen to the app lifecycle state
 class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   @override
@@ -34,7 +36,7 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    ref.read(appStateProvider.notifier).state = state;
+    ref.read(appStateProvider.notifier).update((_) => state);
     super.didChangeAppLifecycleState(state);
   }
 
