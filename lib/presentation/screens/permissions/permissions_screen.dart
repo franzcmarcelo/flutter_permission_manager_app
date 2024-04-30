@@ -4,6 +4,8 @@ import 'package:flutter_permission_manager_app/presentation/providers/providers.
 
 class PermissionsScreen extends StatelessWidget {
 
+  static const String routeName = 'permissions_screen';
+
   const PermissionsScreen({super.key});
 
   @override

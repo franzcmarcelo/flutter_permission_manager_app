@@ -6,11 +6,12 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-
+      name: HomeScreen.routeName,
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
       path: '/permissions',
+      name: PermissionsScreen.routeName,
       builder: (context, state) => const PermissionsScreen(),
     ),
   ],
