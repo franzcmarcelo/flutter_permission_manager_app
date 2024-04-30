@@ -64,7 +64,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.cameraGranted,
           title: const Text('Camera'),
-          subtitle: Text('${permissions.camera}'),
+          subtitle: Text(
+            '${permissions.camera}',
+            style: TextStyle(color: permissions.cameraGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestCameraAccess();
           },
@@ -72,7 +75,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.photoLibraryGranted,
           title: const Text('Gallery'),
-          subtitle: Text('${permissions.photoLibrary}'),
+          subtitle: Text(
+            '${permissions.photoLibrary}',
+            style: TextStyle(color: permissions.photoLibraryGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestPhotoLibraryAccess();
           },
@@ -80,7 +86,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.sensorsGranted,
           title: const Text('Sensors'),
-          subtitle: Text('${permissions.sensors}'),
+          subtitle: Text(
+            '${permissions.sensors}',
+            style: TextStyle(color: permissions.sensorsGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestSensorsAccess();
           },
@@ -88,7 +97,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.locationGranted,
           title: const Text('Location'),
-          subtitle: Text('${permissions.location}'),
+          subtitle: Text(
+            '${permissions.location}',
+            style: TextStyle(color: permissions.locationGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestLocationAccess();
           },
@@ -96,7 +108,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.locationAlwaysGranted,
           title: const Text('Location Always'),
-          subtitle: Text('${permissions.locationAlways}'),
+          subtitle: Text(
+            '${permissions.locationAlways}',
+            style: TextStyle(color: permissions.locationAlwaysGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestLocationAlwaysAccess();
           },
@@ -104,7 +119,10 @@ class _PermissionsView extends ConsumerWidget {
         CheckboxListTile(
           value: permissions.locationWhenInUseGranted,
           title: const Text('Location When In Use'),
-          subtitle: Text('${permissions.locationWhenInUse}'),
+          subtitle: Text(
+            '${permissions.locationWhenInUse}',
+            style: TextStyle(color: permissions.locationWhenInUseGranted ? Colors.green : Colors.red),
+          ),
           onChanged: (_){
             ref.read(permissionsProvider.notifier).requestLocationWhenInUseAccess();
           },
