@@ -7,9 +7,7 @@ final permissionsProvider = StateNotifierProvider<PermissionsNotifier, Permissio
 
 class PermissionsNotifier extends StateNotifier<PermissionsState> {
 
-  PermissionsNotifier(): super(PermissionsState()) {
-    checkPermissions();
-  }
+  PermissionsNotifier(): super(PermissionsState());
 
   Future<void> checkPermissions() async {
 
@@ -32,9 +30,15 @@ class PermissionsNotifier extends StateNotifier<PermissionsState> {
     );
   }
 
+  void checkOpenSettings(status) {
+    if(status == PermissionStatus.permanentlyDenied) {
+      openAppSettings();
+    }
+  }
+
   Future<PermissionStatus> _requestPermission(Permission permission) async {
     final PermissionStatus status = await permission.request();
-    if(status == PermissionStatus.permanentlyDenied) { openAppSettings(); }
+    checkOpenSettings(status);
     return status;
   }
 

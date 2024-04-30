@@ -36,7 +36,14 @@ class MainAppState extends ConsumerState<MainApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+
     ref.read(appStateProvider.notifier).update((_) => state);
+
+    if(state == AppLifecycleState.resumed) {
+      // The app crashes only when set the permission to denied (don't allow) from the settings (outside the app).
+      ref.read(permissionsProvider.notifier).checkPermissions();
+    }
+
     super.didChangeAppLifecycleState(state);
   }
 
